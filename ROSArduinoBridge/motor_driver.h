@@ -1,16 +1,23 @@
-/***************************************************************
-   Motor driver function definitions - by James Nugen
-   *************************************************************/
+#ifndef MOTOR_DRIVER_H
+#define MOTOR_DRIVER_H
 
-#ifdef L298_MOTOR_DRIVER
-  #define RIGHT_MOTOR_BACKWARD 5
-  #define LEFT_MOTOR_BACKWARD  6
-  #define RIGHT_MOTOR_FORWARD  9
-  #define LEFT_MOTOR_FORWARD   10
-  #define RIGHT_MOTOR_ENABLE 12
-  #define LEFT_MOTOR_ENABLE 13
-#endif
+// Definições dos pinos para PWM e direção
+const int LEFT_MOTOR_PWM = 9;      // Pino PWM para o motor esquerdo
+const int LEFT_MOTOR_DIR = 8;      // Pino de direção para o motor esquerdo
+const int RIGHT_MOTOR_PWM = 10;    // Pino PWM para o motor direito
+const int RIGHT_MOTOR_DIR = 11;    // Pino de direção para o motor direito
 
+// Constantes de controle do motor
+const int PWM_MAX = 255;           // Valor máximo para PWM
+const int PWM_MIN = 0;             // Valor mínimo para PWM
+
+// Definições de motor
+#define LEFT 0
+#define RIGHT 1
+
+// Funções para controle do motor
 void initMotorController();
 void setMotorSpeed(int i, int spd);
 void setMotorSpeeds(int leftSpeed, int rightSpeed);
+
+#endif // MOTOR_DRIVER_H
